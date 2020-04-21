@@ -4,30 +4,24 @@
 }
 
 <div class="text-center">
-    <h5>SERVER VALIDATION HOMEPAGE -</h5><h6> AUTOMATION TOOL</h6>
-
+    <h5>MaaS - Server Assessment </h5>
 </div>
-
+<br />
+<hr />
 <div>
     <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-            <a class="nav-item nav-link" id="nav-policies-tab" data-toggle="tab" href="#nav-policies" role="tab" aria-controls="nav-policies" aria-selected="false">Policies</a>
-            <a class="nav-item nav-link" id="nav-packages-tab" data-toggle="tab" href="#nav-packages" role="tab" aria-controls="nav-contact" aria-selected="false">Packages</a>
-            <a class="nav-item nav-link" id="nav-permission-tab" data-toggle="tab" href="#nav-permission" role="tab" aria-controls="nav-contact" aria-selected="false">Permission</a>
+        <div class="nav nav-pills" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-serverdetails-tab" data-toggle="tab" href="#nav-serverdetails" role="tab" aria-controls="nav-serverdetails" aria-selected="true">Server Details</a>
+            <a class="nav-item nav-link" id="nav-compare-tab" data-toggle="tab" href="#nav-compare" role="tab" aria-controls="nav-compare" aria-selected="true">Compare Servers</a>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" style="padding-left:15px; padding-right:15px;">
+        <div class="tab-pane fade show active" id="nav-serverdetails" role="tabpanel" aria-labelledby="nav-serverdetails-tab" style="padding-left:15px; padding-right:15px;">
             <partial name="/Views/Home/PartialViews/_PartialHome.cshtml" />
         </div>
-        <div class="tab-pane fade" id="nav-policies" role="tabpanel" aria-labelledby="nav-policies-tab" style="padding-left:15px; padding-right:15px;">
-            <partial name="/Views/Home/PartialViews/_PartialPolicies.cshtml" />
+        <div class="tab-pane fade show " id="nav-compare" role="tabpanel" aria-labelledby="nav-compare-tab" style="padding-left:15px; padding-right:15px;">
+            <partial name="/Views/Home/PartialViews/_PartialCompare.cshtml" />
         </div>
-        <div class="tab-pane fade" id="nav-packages" role="tabpanel" aria-labelledby="nav-packages-tab" style="padding-left:15px; padding-right:15px;">
-            ...
-        </div>
-        <div class="tab-pane fade" id="nav-permission" role="tabpanel" aria-labelledby="nav-permission-tab" style="padding-left:15px; padding-right:15px;">.Permission</div>
     </div>
 </div>
 

@@ -1,52 +1,56 @@
-﻿
-@*
+﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
-<div class="row" >
-    <div class="col-12 alert alert-primary"> Hostname Details</div>
-</div>
-<div class="row">
-    <div class="col-5" style="border:1px solid black;">
-        <div class="row" >
-            <br />
-            <div class="col-6" >
-                <span class="badge badge-primary">Windows 2008 Servers</span>
-            </div>
-        </div>
-        <br />
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="inputEmail4">Hostname</label>
-                <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            <button type="button" class="btn btn-info btn-sm">Upload</button>
-        </div>
-        <span style="font-size:xx-small">**Upload option to provide list of Hostnames is in excel</span>
-        <br />
-        
-        <label class="badge badge-success">Output</label>
-        
-    </div>
 
-    <div class="col-2" style="align-self:center;">
-        <a asp-area="" asp-controller="Home" asp-action="Compare" class="btn btn-primary">Compare</a>
-    </div>
-    <div class="col-5" style="border:1px solid black;">
+
+
+
+<div class="row">
+    <div class="col-12 alert alert-primary">Analyse Windows Servers</div>
+</div>
+<br />
+<div class="row">
+    <div class="col-6">
         <div class="row">
-            <div class="col-8"><span class="badge badge-primary">Windows 2016 Servers</span></div>
-        </div>
-        <br />
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="inputEmail4">Hostname</label>
-                <input type="email" class="form-control" id="inputEmail4">
+            <div class="col-8">Choose Server version</div>
+            <div class="col-4">
+                <input type="radio" name="server" value="2008" /><label style="padding-left:6px;"> 2008 </label><br />
+                <input type="radio" name="server" value="2016" /><label style="padding-left:6px;"> 2016 </label>
             </div>
-            <button type="button" class="btn btn-info btn-sm">Upload</button>
         </div>
-        <span style="font-size:xx-small">**Upload option to provide list of Hostnames is in excel</span>
-        <br />
         
-        <label class="badge badge-success">Output</label>
+    </div>
+    <div class="col-6" style="border:1px solid black;">
+        <div class="row" style="padding:10px 5px 10px 5px;">
+            <div class="col-9">
+                <label class="smallLabels small ">Enter Hostnames</label>
+                <input type="text" name="hostnamecsv" value="" placeholder="Enter multiple hostnames separted by commas" style="width:100%" />
+            </div>
+            <div class="col-2">
+                <br />
+                <a href="#" class="btn btn-primary">Run</a>
+            </div>
+        </div>
         
+    </div>
+</div>
+<div>
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-policies-tab" data-toggle="tab" href="#nav-policies" role="tab" aria-controls="nav-policies" aria-selected="false">Policies</a>
+            <a class="nav-item nav-link" id="nav-packages-tab" data-toggle="tab" href="#nav-packages" role="tab" aria-controls="nav-contact" aria-selected="false">Packages</a>
+            <a class="nav-item nav-link" id="nav-permission-tab" data-toggle="tab" href="#nav-permission" role="tab" aria-controls="nav-contact" aria-selected="false">Permission</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-policies" role="tabpanel" aria-labelledby="nav-policies-tab" style="padding-left:15px; padding-right:15px;">
+            <partial name="/Views/Home/PartialViews/_PartialPolicies.cshtml" />
+        </div>
+        <div class="tab-pane fade" id="nav-packages" role="tabpanel" aria-labelledby="nav-packages-tab" style="padding-left:15px; padding-right:15px;">
+            <partial name="/Views/Home/PartialViews/_PartialPackages.cshtml" />
+        </div>
+        <div class="tab-pane fade" id="nav-permission" role="tabpanel" aria-labelledby="nav-permission-tab" style="padding-left:15px; padding-right:15px;">
+            <partial name="/Views/Home/PartialViews/_PartialPermissions.cshtml" />
+        </div>
     </div>
 </div>
