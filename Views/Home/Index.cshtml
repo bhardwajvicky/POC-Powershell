@@ -3,11 +3,12 @@
     ViewData["Title"] = "Home Page";
 }
 
+<br />
 <div class="text-center">
-    <h5>MaaS - Server Assessment </h5>
+    <h5>MaaS - Server Assessment Tool</h5>
 </div>
 <br />
-<hr />
+<br />
 <div>
     <nav>
         <div class="nav nav-pills" id="nav-tab" role="tablist">
@@ -15,7 +16,7 @@
             <a class="nav-item nav-link" id="nav-compare-tab" data-toggle="tab" href="#nav-compare" role="tab" aria-controls="nav-compare" aria-selected="true">Compare Servers</a>
         </div>
     </nav>
-    <div class="tab-content" id="nav-tabContent">
+    <div class="tab-content" id="nav-tabContent" style="padding-left:2px; padding-right:2px;">
         <div class="tab-pane fade show active" id="nav-serverdetails" role="tabpanel" aria-labelledby="nav-serverdetails-tab" style="padding-left:15px; padding-right:15px;">
             <partial name="/Views/Home/PartialViews/_PartialHome.cshtml" />
         </div>
@@ -27,10 +28,10 @@
 
 @section Scripts{
     <script type="text/javascript">
-    function updatePolicyDetails() {
+    function compareHosts() {
         $.ajax({
             type: "GET",
-            url: "/Home/RefreshPolicies",
+            url: "/Home/Compare",
             contentType: "application/json",
             dataType: "html",
             success: function (response) {
@@ -41,6 +42,80 @@
                 //handle the error
             }
         });
-    }
+        }
+
+        function fetchHostDetails() {
+            initiateExtract();
+
+            setTimeout(refreshAllExtractTabs, 5000);
+
+        }
+
+        function refreshAllExtractTabs() {
+            getPolicyTabHTML();
+            getPackageTabHTML();
+            getPermissionTabHTML();
+        }
+        function initiateExtract() {
+            $.ajax({
+                type: "GET",
+                url: "/Home/RunExtract",
+                contentType: "application/json",
+                dataType: "html",
+                success: function (response) {
+                    //populate the form elements with the returned data
+                },
+                failure: function (response) {
+                    //handle the error
+                }
+            });
+        }
+
+        function getPolicyTabHTML() {
+            $.ajax({
+                type: "GET",
+                url: "/Home/ExtractPolicyDetails",
+                contentType: "application/json",
+                dataType: "html",
+                success: function (response) {
+                    $("#nav-policies").html(response);
+                    //populate the form elements with the returned data
+                },
+                failure: function (response) {
+                    //handle the error
+                }
+            });
+        }
+        function getPackageTabHTML() {
+            $.ajax({
+                type: "GET",
+                url: "/Home/ExtractPackageDetails",
+                contentType: "application/json",
+                dataType: "html",
+                success: function (response) {
+                    $("#nav-packages").html(response);
+                    //populate the form elements with the returned data
+                },
+                failure: function (response) {
+                    //handle the error
+                }
+            });
+        }
+
+        function getPermissionTabHTML() {
+            $.ajax({
+                type: "GET",
+                url: "/Home/ExtractPermissionDetails",
+                contentType: "application/json",
+                dataType: "html",
+                success: function (response) {
+                    $("#nav-permission").html(response);
+                    //populate the form elements with the returned data
+                },
+                failure: function (response) {
+                    //handle the error
+                }
+            });
+        }
     </script>
 }

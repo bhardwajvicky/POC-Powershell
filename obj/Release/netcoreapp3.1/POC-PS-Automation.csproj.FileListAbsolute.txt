@@ -395,3 +395,6 @@ C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Release\netc
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Release\netcoreapp3.1\POC-PS-Automation.pdb
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Release\netcoreapp3.1\POC-PS-Automation.genruntimeconfig.cache
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Release\netcoreapp3.1\Razor\Views\Home\PartialViews\_PartialPolicies.cshtml.g.cs
+C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Release\netcoreapp3.1\Razor\Views\Home\PartialViews\_PartialCompare.cshtml.g.cs
+C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Release\netcoreapp3.1\Razor\Views\Home\PartialViews\_PartialPackages.cshtml.g.cs
+C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Release\netcoreapp3.1\Razor\Views\Home\PartialViews\_PartialPermissions.cshtml.g.cs

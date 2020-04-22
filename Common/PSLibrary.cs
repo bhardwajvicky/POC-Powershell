@@ -6,7 +6,30 @@ namespace POC_PS_Automation.Common
 {
     public class PSLibrary
     {
-        public void ExecuteTestScript()
+        public void ExecutePowershellScript(string scriptPath)
+        {
+            var startInfo = new ProcessStartInfo()
+            {
+                FileName = "powershell.exe",
+                Arguments = $"-NoProfile -ExecutionPolicy unrestricted -file \"{scriptPath}\"",
+                UseShellExecute = false
+            };
+            Process.Start(startInfo);
+        }
+
+        //public void ExecuteTestScript()
+        //{
+        //    var ps1File = "wwwroot/PSScripts/test.ps1";
+        //    var startInfo = new ProcessStartInfo()
+        //    {
+        //        FileName = "powershell.exe",
+        //        Arguments = $"-NoProfile -ExecutionPolicy unrestricted -file \"{ps1File}\"",
+        //        UseShellExecute = false
+        //    };
+        //    Process.Start(startInfo);
+        //}
+
+        public void ExecuteCompareScript()
         {
             var ps1File = "wwwroot/PSScripts/test.ps1";
             var startInfo = new ProcessStartInfo()
@@ -18,6 +41,17 @@ namespace POC_PS_Automation.Common
             Process.Start(startInfo);
         }
 
+        public void ExecuteFetchHostDetailScript(string hostNameCSV)
+        {
+            var ps1File = "wwwroot/PSScripts/test.ps1";
+            var startInfo = new ProcessStartInfo()
+            {
+                FileName = "powershell.exe",
+                Arguments = $"-NoProfile -ExecutionPolicy unrestricted -file \"{ps1File}\"",
+                UseShellExecute = false
+            };
+            Process.Start(startInfo);
+        }
         public string ReadTestScriptOutput()
         {
             String result = string.Empty;

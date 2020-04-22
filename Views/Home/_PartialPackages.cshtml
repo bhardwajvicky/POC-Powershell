@@ -1,0 +1,36 @@
+﻿@model IEnumerable<POC_PS_Automation.Domain.Package>
+@{
+    int sNo = 0;
+}
+    @*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<br />
+<br />
+
+<div class="row">
+    <div class="col-12" id="packagesContentDiv">
+        <table class="table table-bordered table-sm" id="tblPackagesExtract">
+            <tr style="background-color:lightgray;">
+                <td>No.</td>
+                <td>Hostname</td>
+                <td>OS Name</td>
+                <td>OS Version</td>
+                <td>Package Name</td>
+                <td>Version</td>
+            </tr>
+            @foreach (var p in Model)
+            {
+                sNo++;
+                <tr>
+                    <td>@sNo</td>
+                    <td>@p.Hostname</td>
+                    <td>@p.OSName</td>
+                    <td>@p.OSVersion</td>
+                    <td>@p.PackageName</td>
+                    <td>@p.Version</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
