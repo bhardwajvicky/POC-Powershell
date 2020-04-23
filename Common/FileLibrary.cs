@@ -12,6 +12,11 @@ namespace POC_PS_Automation.Common
 {
     public class FileLibrary
     {
+        private readonly string _input_files_path = "wwwroot/InputFiles/";
+        private readonly string _input_folderpath_file = "Input_FolderPath.txt";
+        private readonly string _input_host_file = "Input_FolderPath.txt";
+        private readonly string _input_host_cmp_file = "Input_FolderPath.txt";
+
         private CsvReader getTextReaderForFile(string path)
         {
             var content = File.ReadAllLines(path);
@@ -52,6 +57,36 @@ namespace POC_PS_Automation.Common
             return null;
         }
 
+        public IEnumerable<ComparePolicyRow> ReadPolicyCompare()
+        {
+            var path = "wwwroot/ScriptOutput/Output_Policy_cmp.csv";
+            if (File.Exists(path))
+            {
+                return getTextReaderForFile(path).GetRecords<ComparePolicyRow>();
+            }
+            return null;
+        }
+
+        public IEnumerable<ComparePackageRow> ReadPackageCompare()
+        {
+            var path = "wwwroot/ScriptOutput/Output_package_cmp.csv";
+            if (File.Exists(path))
+            {
+                return getTextReaderForFile(path).GetRecords<ComparePackageRow>();
+            }
+            return null;
+        }
+
+        public IEnumerable<FolderPermissionCompareRow> ReadFolderCompare()
+        {
+            var path = "wwwroot/ScriptOutput/output_Folderperm_cmp.csv";
+            if (File.Exists(path))
+            {
+                return getTextReaderForFile(path).GetRecords<FolderPermissionCompareRow>();
+            }
+            return null;
+        }
+
         public void UpdateInputHostNameFile(string csvInput)
         {
             var inputHostNameFilePath = "wwwroot/InputFiles/Input_Host.txt";
@@ -88,7 +123,7 @@ namespace POC_PS_Automation.Common
         {
             var inputCompareFilePath = "wwwroot/InputFiles/Input_Host_cmp.txt";
 
-            if (host2008.Trim().Length > 0 && host2016.Trim().Length>0)
+            if (host2008!=null && host2016!=null && host2008.Trim().Length > 0 && host2016.Trim().Length>0)
             {
                 deleteFile(inputCompareFilePath);
                 using (StreamWriter sw = File.CreateText(inputCompareFilePath))

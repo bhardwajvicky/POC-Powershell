@@ -1,26 +1,37 @@
 ﻿
 @{
     ViewData["Title"] = "Home Page";
+    string extractActiveFlag = "";
+    string compareActiveFlag = "";
+    if(TempData["TargetTab"].ToString() == "Compare"){
+        compareActiveFlag = "active";
+        extractActiveFlag = "";
+    }
+    else
+    {
+        compareActiveFlag = "";
+        extractActiveFlag = "active";
+    }
 }
 
-<br />
 <div class="text-center">
-    <h5>MaaS - Server Assessment Tool</h5>
+    <p>
+        <h5 ><u><b > MaaS - Server Assessment Tool </b></u></h5>
+    </p>
 </div>
-<br />
-<br />
-<div>
+
+<div style="padding-left:5px;">
     <nav>
         <div class="nav nav-pills" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-serverdetails-tab" data-toggle="tab" href="#nav-serverdetails" role="tab" aria-controls="nav-serverdetails" aria-selected="true">Server Details</a>
-            <a class="nav-item nav-link" id="nav-compare-tab" data-toggle="tab" href="#nav-compare" role="tab" aria-controls="nav-compare" aria-selected="true">Compare Servers</a>
+            <a class="nav-item nav-link @extractActiveFlag" id="nav-serverdetails-tab" data-toggle="tab" href="#nav-serverdetails" role="tab" aria-controls="nav-serverdetails" aria-selected="true">Server Details</a>
+            <a class="nav-item nav-link @compareActiveFlag" id="nav-compare-tab" data-toggle="tab" href="#nav-compare" role="tab" aria-controls="nav-compare" aria-selected="true">Compare Servers</a>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent" style="padding-left:2px; padding-right:2px;">
-        <div class="tab-pane fade show active" id="nav-serverdetails" role="tabpanel" aria-labelledby="nav-serverdetails-tab" style="padding-left:15px; padding-right:15px;">
+        <div class="tab-pane fade show @extractActiveFlag" id="nav-serverdetails" role="tabpanel" aria-labelledby="nav-serverdetails-tab" style="padding-left:15px; padding-right:15px;">
             <partial name="/Views/Home/PartialViews/_PartialHome.cshtml" />
         </div>
-        <div class="tab-pane fade show " id="nav-compare" role="tabpanel" aria-labelledby="nav-compare-tab" style="padding-left:15px; padding-right:15px;">
+        <div class="tab-pane fade show @compareActiveFlag" id="nav-compare" role="tabpanel" aria-labelledby="nav-compare-tab" style="padding-left:15px; padding-right:15px;">
             <partial name="/Views/Home/PartialViews/_PartialCompare.cshtml" />
         </div>
     </div>
@@ -28,94 +39,18 @@
 
 @section Scripts{
     <script type="text/javascript">
-    function compareHosts() {
-        $.ajax({
-            type: "GET",
-            url: "/Home/Compare",
-            contentType: "application/json",
-            dataType: "html",
-            success: function (response) {
-                $("#policyContentDiv").html(response);
-                //populate the form elements with the returned data
-            },
-            failure: function (response) {
-                //handle the error
+        $(document).ready(function () {
+            console.log(@int.Parse(TempData["Delay"].ToString()));
+            var delay = @int.Parse(TempData["Delay"].ToString());
+            if (delay > 0) {
+                if ('@compareActiveFlag' === "active") {
+                    setTimeout(refreshCompareResults, delay);
+                } else {
+                    setTimeout(refreshAllExtractTabs, delay);
+                }
             }
+            //console.log('@TempData["TargetTab"]');
+
         });
-        }
-
-        function fetchHostDetails() {
-            initiateExtract();
-
-            setTimeout(refreshAllExtractTabs, 5000);
-
-        }
-
-        function refreshAllExtractTabs() {
-            getPolicyTabHTML();
-            getPackageTabHTML();
-            getPermissionTabHTML();
-        }
-        function initiateExtract() {
-            $.ajax({
-                type: "GET",
-                url: "/Home/RunExtract",
-                contentType: "application/json",
-                dataType: "html",
-                success: function (response) {
-                    //populate the form elements with the returned data
-                },
-                failure: function (response) {
-                    //handle the error
-                }
-            });
-        }
-
-        function getPolicyTabHTML() {
-            $.ajax({
-                type: "GET",
-                url: "/Home/ExtractPolicyDetails",
-                contentType: "application/json",
-                dataType: "html",
-                success: function (response) {
-                    $("#nav-policies").html(response);
-                    //populate the form elements with the returned data
-                },
-                failure: function (response) {
-                    //handle the error
-                }
-            });
-        }
-        function getPackageTabHTML() {
-            $.ajax({
-                type: "GET",
-                url: "/Home/ExtractPackageDetails",
-                contentType: "application/json",
-                dataType: "html",
-                success: function (response) {
-                    $("#nav-packages").html(response);
-                    //populate the form elements with the returned data
-                },
-                failure: function (response) {
-                    //handle the error
-                }
-            });
-        }
-
-        function getPermissionTabHTML() {
-            $.ajax({
-                type: "GET",
-                url: "/Home/ExtractPermissionDetails",
-                contentType: "application/json",
-                dataType: "html",
-                success: function (response) {
-                    $("#nav-permission").html(response);
-                    //populate the form elements with the returned data
-                },
-                failure: function (response) {
-                    //handle the error
-                }
-            });
-        }
     </script>
 }

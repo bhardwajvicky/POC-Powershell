@@ -3,35 +3,31 @@
 *@
 
 
-<div class="row">
+<p>
     <div class="col-12 alert alert-primary">Server Build Validation - Windows Servers</div>
+</p>
+
+<div class="row" style="padding-left:25px;">
+    
+        <div class="col-4" style="border:1px solid black;">
+            <label class="smallLabels small ">Enter 2008 Hostname</label>
+            <input type="text" name="hostnameSource" id="hostnameSource" value="" placeholder="Enter 2008 hostname to compare" style="width:100%; margin-bottom:10px; " />
+        </div>
+        <div class="offset-1 col-4" style="border:1px solid black;">
+            <label class="smallLabels small ">Enter 2016 Hostname</label>
+            <input type="text" name="hostnameTarget" id="hostnameTarget" value="" placeholder="Enter 2016 hostname to compare" style="width:100%; margin-bottom:10px; " />
+        </div>
+        
+
+        <div class="col-3">
+            
+            <a href="#" class="btn btn-primary btn-sm " onclick="compareHosts();">Compare</a>
+          
+            <a href="#" class="btn btn-warning btn-sm float-right" onclick="refreshCompareResults();">Show Result</a>
+        </div>
 </div>
-<br />
-<div class="row">
-    <div class="col-4" style="border:1px solid black;">
-        <label class="smallLabels small ">Enter 2008 Hostname</label>
-        <input type="text" name="hostnameSource" value="" placeholder="Enter 2008 hostname to compare" style="width:100%; margin-bottom:10px; " />
-    </div>
-    <div class="offset-1 col-4" style="border:1px solid black;">
-        <label class="smallLabels small ">Enter 2016 Hostname</label>
-        <input type="text" name="hostnameTarget" value="" placeholder="Enter 2016 hostname to compare" style="width:100%; margin-bottom:10px; " />
-    </div>
-    <div class="col-3">
-        <br />
-        <a href="#" class="btn btn-primary float-right" onclick="compareHosts();">Compare</a>
-    </div>
-</div>
-<br />
-<p><b>Output (Shows only missing elements in Win 2016 Server</b></p>
-<table class="table table-bordered table-sm">
-    <tr style="background-color:lightgray;">
-        <td>No.</td>
-        <td>Component</td>
-        <td>Object Details</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Policies</td>
-        <td>Global Server Policy</td>
-    </tr>
-</table>
+<form asp-action="Compare" id="compareForm" data-ajax="true" data-ajax-method="post" data-ajax-complete="completed">
+    <input type="hidden" name="Host2008" id="Host2008" />
+    <input type="hidden" name="Host2016" id="Host2016" />
+</form>
+<div id="divCompareResult"></div>

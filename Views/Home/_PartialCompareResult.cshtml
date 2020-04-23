@@ -1,0 +1,70 @@
+﻿@model POC_PS_Automation.Domain.ViewModel.VMCompareResult
+@{
+    int sNo = 0;
+}
+
+<br />
+<p><b>Output (Shows only missing elements in Win 2016 Server</b></p>
+<a href="~/ScriptOutput/output_Folderperm_cmp.csv" target="_blank">CSV</a>
+
+<div class="row">
+    <div class="col-12 resultTab" id="permissionContentDiv">
+        <table class="table table-bordered table-sm table-striped defaultTable " id="tblPermissionsCompare">
+            <tr style="background-color:lightgray;">
+                <td>No.</td>
+                <td>Folder Name</td>
+                <td>Group/User</td>
+                <td>Permissions 2008</td>
+                <td>Permissions 2016</td>
+            </tr>
+            @foreach (var p in Model.FolderCompareResult)
+            {
+                sNo++;
+                <tr>
+                    <td>@sNo</td>
+                    <td>@p.FolderName</td>
+                    <td>@p.GroupOrUser</td>
+                    <td>@p.Permission2008</td>
+                    <td>@p.Permission2016</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6 resultTab" id="permissionContentDiv">
+        <a href="~/ScriptOutput/Output_package_cmp.csv" target="_blank">CSV</a>
+        <table class="table table-bordered table-sm table-striped defaultTable " id="tblPackageCompare">
+            <tr style="background-color:lightgray;">
+                <td>No.</td>
+                <td>Package Name</td>
+            </tr>
+            @foreach (var p in Model.PackageCompareResult)
+            {
+                sNo++;
+                <tr>
+                    <td>@sNo</td>
+                    <td>@p.PacakgeName</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-6 resultTab" id="permissionContentDiv">
+        <a href="~/ScriptOutput/Output_Policy_cmp.csv" target="_blank">CSV</a>
+        <table class="table table-bordered table-sm table-striped defaultTable " id="tblPolicyCompare">
+            <tr style="background-color:lightgray;">
+                <td>No.</td>
+                <td>Package Name</td>
+            </tr>
+            @foreach (var p in Model.PolicyCompareResult)
+            {
+                sNo++;
+                <tr>
+                    <td>@sNo</td>
+                    <td>@p.PolicyName</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

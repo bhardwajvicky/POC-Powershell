@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using POC_PS_Automation.Common;
+using POC_PS_Automation.Domain.RequestObjects;
+using POC_PS_Automation.Domain.ViewModel;
 using POC_PS_Automation.Models;
 
 namespace POC_PS_Automation.Controllers
@@ -29,31 +31,45 @@ namespace POC_PS_Automation.Controllers
 
         public IActionResult Index()
         {
+            if (TempData["TargetTab"] == null) TempData["TargetTab"] = "Extract";
+            if (TempData["Delay"] == null) TempData["Delay"] = 0;
             return View();
         }
 
-        public IActionResult Compare()
+        [HttpPost]
+        public IActionResult Compare(string Host2008, string Host2016)
         {
             PSLibrary psl = new PSLibrary();
+            FileLibrary fl = new FileLibrary();
+
+            fl.UpdateInputCompareHostFile(Host2008, Host2016);
+
             psl.ExecutePowershellScript(_input_scripts_path + _package_cmp_psfile);
             psl.ExecutePowershellScript(_input_scripts_path+_policy_cmp_psfile);
             psl.ExecutePowershellScript(_input_scripts_path+_folder_perm_cmp_psfile);
-            
+            TempData["TargetTab"] = "Compare";
+            TempData["Delay"] = 5000;
             return RedirectToAction("Index");
         }
 
-        public IActionResult RunExtract()
+        [HttpPost]
+        public IActionResult RunExtract([Bind("HostCSV,FolderPath")] HostExtractRequest req)
         {
             PSLibrary psl = new PSLibrary();
-
+            FileLibrary fl = new FileLibrary();
             //Write Input Files
+            fl.UpdateInputHostNameFile(req.HostCSV);
+            fl.UpdateInputFolderPathFile(req.FolderPath);
+
 
             //Run Script
             psl.ExecutePowershellScript(_input_scripts_path + _package_ext_psfile);
             psl.ExecutePowershellScript(_input_scripts_path + _policy_ext_psfile);
             psl.ExecutePowershellScript(_input_scripts_path + _folder_perm_ext_psfile);
 
-            return Ok();
+            TempData["TargetTab"] = "Extract";
+            TempData["Delay"] = 5000;
+            return RedirectToAction("Index");
         }
 
         public PartialViewResult ExtractPolicyDetails()
@@ -78,6 +94,18 @@ namespace POC_PS_Automation.Controllers
             FileLibrary fl = new FileLibrary();
             var x = fl.ReadPermissionExtact();
             return PartialView("_PartialPermissions", x);
+        }
+
+
+        public PartialViewResult PartialFetchCompareResults()
+        {
+            //Load Policy
+            FileLibrary fl = new FileLibrary();
+            VMCompareResult vm = new VMCompareResult();
+            vm.PolicyCompareResult = fl.ReadPolicyCompare();
+            vm.PackageCompareResult = fl.ReadPackageCompare();
+            vm.FolderCompareResult = fl.ReadFolderCompare();
+            return PartialView("_PartialCompareResult", vm);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
