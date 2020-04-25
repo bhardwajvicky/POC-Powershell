@@ -90,16 +90,20 @@ namespace POC_PS_Automation.Common
         public void UpdateInputHostNameFile(string csvInput)
         {
             var inputHostNameFilePath = "wwwroot/InputFiles/Input_Host.txt";
-            var hostNameArr = csvInput.Split(",");
-            
-            if(hostNameArr.Length>0)
+            string[] hostNameArr = null;
+            if (csvInput != null)
+            {
+                hostNameArr = csvInput.Split(",");
+            }
+
+            if (csvInput != null && hostNameArr.Length>0)
             {
                 deleteFile(inputHostNameFilePath);
                 using (StreamWriter sw = File.CreateText(inputHostNameFilePath))
                 {
                     foreach (var h in hostNameArr)
                     {
-                        sw.WriteLine(h);
+                        sw.WriteLine(h.Trim());
                     }
                 }
             }
@@ -108,8 +112,8 @@ namespace POC_PS_Automation.Common
         public void UpdateInputFolderPathFile(string folderPath)
         {
             var inputFolderPathFileLocation = "wwwroot/InputFiles/Input_FolderPath.txt";
-
-            if (folderPath.Trim().Length > 0)
+            
+            if (folderPath != null && folderPath.Trim().Length > 0)
             {
                 deleteFile(inputFolderPathFileLocation);
                 using (StreamWriter sw = File.CreateText(inputFolderPathFileLocation))

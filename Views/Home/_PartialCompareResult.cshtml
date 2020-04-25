@@ -4,8 +4,8 @@
 }
 
 <br />
-<p><b>Output (Shows only missing elements in Win 2016 Server</b></p>
-<a href="~/ScriptOutput/output_Folderperm_cmp.csv" target="_blank">CSV</a>
+<p class="align-self-center"><b>Build Validation (Elements missing in Win 2016 Server)</b></p>
+<label>Folder Permission Comparison</label><a href="~/ScriptOutput/output_Folderperm_cmp.csv" target="_blank" class="float-right">CSV</a>
 
 <div class="row">
     <div class="col-12 resultTab" id="permissionContentDiv">
@@ -34,7 +34,7 @@
 
 <div class="row">
     <div class="col-6 resultTab" id="permissionContentDiv">
-        <a href="~/ScriptOutput/Output_package_cmp.csv" target="_blank">CSV</a>
+        <label>Package Comparison</label><a href="~/ScriptOutput/Output_package_cmp.csv" target="_blank" class="float-right">CSV</a>
         <table class="table table-bordered table-sm table-striped defaultTable " id="tblPackageCompare">
             <tr style="background-color:lightgray;">
                 <td>No.</td>
@@ -51,11 +51,11 @@
         </table>
     </div>
     <div class="col-6 resultTab" id="permissionContentDiv">
-        <a href="~/ScriptOutput/Output_Policy_cmp.csv" target="_blank">CSV</a>
+        <label>Policy Comparison</label><a href="~/ScriptOutput/Output_Policy_cmp.csv" target="_blank" class="float-right">CSV</a>
         <table class="table table-bordered table-sm table-striped defaultTable " id="tblPolicyCompare">
             <tr style="background-color:lightgray;">
                 <td>No.</td>
-                <td>Package Name</td>
+                <td>Policy Name</td>
             </tr>
             @foreach (var p in Model.PolicyCompareResult)
             {

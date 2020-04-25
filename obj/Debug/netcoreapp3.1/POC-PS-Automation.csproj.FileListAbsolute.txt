@@ -368,6 +368,10 @@ C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\bin\Debug\netcor
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.csprojAssemblyReference.cache
+C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.csproj.CoreCompileInputs.cache
+C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.RazorAssemblyInfo.cache
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.RazorAssemblyInfo.cs
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.AssemblyInfoInputs.cache
@@ -378,6 +382,7 @@ C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcor
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\Razor\Views\Home\PartialViews\_PartialCompare.cshtml.g.cs
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\Razor\Views\Home\PartialViews\_PartialHome.cshtml.g.cs
+C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\Razor\Views\Home\_PartialCompareResult.cshtml.g.cs
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\Razor\Views\Home\_PartialPackages.cshtml.g.cs
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\Razor\Views\Home\_PartialPermissions.cshtml.g.cs
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\Razor\Views\Home\_PartialPolicies.cshtml.g.cs
@@ -395,8 +400,3 @@ C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcor
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.dll
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.pdb
 C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.genruntimeconfig.cache
-C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.csprojAssemblyReference.cache
-C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.csproj.CoreCompileInputs.cache
-C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\POC-PS-Automation.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Vikas\source\repos\POC-PS-Automation\POC-PS-Automation\obj\Debug\netcoreapp3.1\Razor\Views\Home\_PartialCompareResult.cshtml.g.cs

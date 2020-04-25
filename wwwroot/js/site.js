@@ -3,18 +3,59 @@
 
 // Write your JavaScript code.
 function compareHosts() {
-    $("#Host2008").val($("#hostnameSource").val());
-    $("#Host2016").val($("#hostnameTarget").val());
-    $("#compareForm").submit();
+    runFlag = true;
+    if ($("#hostnameSource").val() === null || $("#hostnameSource").val() === '') {
+        alert('Please provide 2008 server details.');
+        runFlag = false;
+        $("#hostnameSource").focus();
+	}
+    if (runFlag === true) {
+        if ($("#hostnameTarget").val() === null || $("#hostnameTarget").val() === '') {
+            alert('Please provide 2016 server details.');
+            runFlag = false;
+            $("#hostnameTarget").focus();
+        }
+    }
+    if (runFlag === true) {
+        if ($("#cmphostPath").val() === null || $("#cmphostPath").val() === '') {
+            alert('Please provide folder path details.');
+            runFlag = false;
+            $("#cmphostPath").focus();
+        }
+    }
+
+    if (runFlag === true) {
+        $("#Host2008").val($("#hostnameSource").val());
+        $("#Host2016").val($("#hostnameTarget").val());
+        $("#CompareHostPath").val($("#cmphostPath").val());
+        $("#compareForm").submit();
+	}
 }
 
 function fetchHostDetails() {
-    $("#extractForm").submit();
+    if ($("#extractForm").valid() === true) {
+        trimHostTextArea();
+        $("#extractForm").submit();
 
-    //initiateExtract();
 
-    //Force delay of 5 seconds.
-    setTimeout(refreshAllExtractTabs, 5000);
+        //Force delay of 5 seconds.
+        //setTimeout(refreshAllExtractTabs, 5000);
+    }
+    else {
+        //alert("Please provide values for both hostname & path.")
+	}
+}
+
+function trimHostTextArea() {
+    var lines = $("textarea[name=HostCSV]").val().split(/\n/);
+    var texts = [];
+    for (var i = 0; i < lines.length; i++) {
+        if (/\S/.test(lines[i])) {
+            texts.push($.trim(lines[i]));
+        }
+    }
+    var n = texts.toString().split(",").join("\n");
+    $("textarea[name=HostCSV]").val(n);
 }
 
 function refreshAllExtractTabs() {

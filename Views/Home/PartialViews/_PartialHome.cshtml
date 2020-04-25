@@ -26,9 +26,11 @@
             <div class="col-10">
                 <form asp-action="RunExtract" id="extractForm" data-ajax="true" data-ajax-method="post" data-ajax-complete="completed">
                     @*<label class="smallLabels small ">Enter Hostnames</label>*@
-                    <input type="text" name="HostCSV" id="hostnamecsv" value="" placeholder="Enter multiple hostnames separted by commas" style="width:100%" /><br /><br />
+                    @*<input type="text" name="HostCSV" required id="hostnamecsv" value="" placeholder="Enter multiple hostnames separted by commas" style="width:100%" /><br /><br />*@
+                    <textarea name="HostCSV" required id="hostnamecsv" value="" rows="5" placeholder="Enter multiple hostnames separted by commas" onfocusout="trimHostTextArea()" style="width:100%" ></textarea><br /><br />
+                    @*<span asp-validation-for="HostCSV" class="text-danger"></span>*@
                     @*<label class="smallLabels small ">Folder Path</label>*@
-                    <input type="text" name="FolderPath" id="hostPath" value="" placeholder="Enter folder path" style="width:100%" />
+                    <input type="text" name="FolderPath" required id="hostPath" value="" placeholder="Enter folder path" style="width:100%" />
                 </form>
             </div>
             <div class="col-2">

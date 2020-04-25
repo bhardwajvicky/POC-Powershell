@@ -17,8 +17,6 @@
             <label class="smallLabels small ">Enter 2016 Hostname</label>
             <input type="text" name="hostnameTarget" id="hostnameTarget" value="" placeholder="Enter 2016 hostname to compare" style="width:100%; margin-bottom:10px; " />
         </div>
-        
-
         <div class="col-3">
             
             <a href="#" class="btn btn-primary btn-sm " onclick="compareHosts();">Compare</a>
@@ -26,8 +24,20 @@
             <a href="#" class="btn btn-warning btn-sm float-right" onclick="refreshCompareResults();">Show Result</a>
         </div>
 </div>
+<p></p>
+<div class="row"  style="padding-left:25px;">
+    <div class="col-9" style="border:1px solid black;">
+        <label class="smallLabels small ">Folder Path</label>
+        <input type="text" name="FolderPath" required id="cmphostPath" value="" placeholder="Enter folder path" style="width:100%" />
+        <br /><br />
+        
+    </div>
+    
+</div>
+
 <form asp-action="Compare" id="compareForm" data-ajax="true" data-ajax-method="post" data-ajax-complete="completed">
-    <input type="hidden" name="Host2008" id="Host2008" />
-    <input type="hidden" name="Host2016" id="Host2016" />
+    <input type="hidden" name="Host2008" id="Host2008" required />
+    <input type="hidden" name="Host2016" id="Host2016" required />
+    <input type="hidden" name="CompareHostPath" id="CompareHostPath" required />
 </form>
 <div id="divCompareResult"></div>
