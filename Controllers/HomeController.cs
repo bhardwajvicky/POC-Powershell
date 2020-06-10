@@ -23,6 +23,11 @@ namespace POC_PS_Automation.Controllers
         private readonly string _folder_perm_cmp_psfile;
         private readonly string _input_scripts_path;
 
+        private readonly string _core_ram_ext_psfile;
+        private readonly string _disk_space_ext_psfile;
+        private readonly string _serviceAccount_ext_psfile;
+
+
         private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration configuration;
 
@@ -39,7 +44,13 @@ namespace POC_PS_Automation.Controllers
             _package_cmp_psfile = configuration["DefaultParameters:Package_cmp_psfile"];
             _policy_cmp_psfile = configuration["DefaultParameters:Policy_cmp_psfile"];
             _folder_perm_cmp_psfile = configuration["DefaultParameters:Folder_perm_cmp_psfile"];
-            _input_scripts_path = configuration["DefaultParameters:Input_scripts_path"]; ;
+
+            _core_ram_ext_psfile = configuration["DefaultParameters:Core_ram_ext_psfile"];
+            _disk_space_ext_psfile = configuration["DefaultParameters:Disk_space_ext_psfile"];
+            _serviceAccount_ext_psfile = configuration["DefaultParameters:ServiceAccount_ext_psfile"];
+
+            _input_scripts_path = configuration["DefaultParameters:Input_scripts_path"];
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -84,6 +95,10 @@ namespace POC_PS_Automation.Controllers
             psl.ExecutePowershellScript(_input_scripts_path + _policy_ext_psfile);
             psl.ExecutePowershellScript(_input_scripts_path + _folder_perm_ext_psfile);
 
+            psl.ExecutePowershellScript(_input_scripts_path + _core_ram_ext_psfile);
+            psl.ExecutePowershellScript(_input_scripts_path + _disk_space_ext_psfile);
+            psl.ExecutePowershellScript(_input_scripts_path + _serviceAccount_ext_psfile);
+
             TempData["TargetTab"] = "Extract";
             TempData["Delay"] = _loadDelayDefault;
             return RedirectToAction("Index");
@@ -114,6 +129,33 @@ namespace POC_PS_Automation.Controllers
             FileLibrary fl = new FileLibrary();
             var x = fl.ReadPermissionExtact();
             return PartialView("_PartialPermissions", x);
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public PartialViewResult ExtractCoreAndRAMDetails()
+        {
+            //Load Policy Extract
+            FileLibrary fl = new FileLibrary();
+            var x = fl.ReadCorRAMExtract();
+            return PartialView("_PartialCoreAndRAM", x);
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public PartialViewResult ExtractDiskDetails()
+        {
+            //Load Policy Extract
+            FileLibrary fl = new FileLibrary();
+            var x = fl.ReadDiskExtract();
+            return PartialView("_PartialDiskDetails", x);
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public PartialViewResult ExtractServiceAccountDetails()
+        {
+            //Load Policy Extract
+            FileLibrary fl = new FileLibrary();
+            var x = fl.ReadServiceAccountExtract();
+            return PartialView("_PartialServiceAccount", x);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

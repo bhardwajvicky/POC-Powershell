@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "a/2fZyJdHbR8bM2AKDo4NexcAwE5P4q8QXcSz1qMAU+A9FAwM9I03TlV2z48wZBgTfrOxQsES1UamYf1mx5qfQ==",
+  "dgSpecHash": "M4aV94459G8ViZNtJEouR5DILoQXyj+MKR+LMttq5zZ6SkkBmbeSIGOtgoykwFrO/n91pp5VTGh+pzO67U8sBQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Vikas\\source\\repos\\POC-PS-Automation\\POC-PS-Automation\\POC-PS-Automation.csproj",
   "expectedPackageFiles": [
@@ -118,7 +118,8 @@
     "C:\\Users\\Vikas\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.3\\system.threading.tasks.extensions.4.5.3.nupkg.sha512",
     "C:\\Users\\Vikas\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Vikas\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\Vikas\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Vikas\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Vikas\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }

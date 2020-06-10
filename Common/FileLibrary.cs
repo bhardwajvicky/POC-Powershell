@@ -87,6 +87,36 @@ namespace POC_PS_Automation.Common
             return null;
         }
 
+        public IEnumerable<ServerProcessingInfra> ReadCorRAMExtract()
+        {
+            var path = "wwwroot/ScriptOutput/Output_Core_Ram.csv";
+            if (File.Exists(path))
+            {
+                return getTextReaderForFile(path).GetRecords<ServerProcessingInfra>();
+            }
+            return null;
+        }
+
+        public IEnumerable<Disk> ReadDiskExtract()
+        {
+            var path = "wwwroot/ScriptOutput/Output_Disk_Space.csv";
+            if (File.Exists(path))
+            {
+                return getTextReaderForFile(path).GetRecords<Disk>();
+            }
+            return null;
+        }
+
+        public IEnumerable<ServiceAccount> ReadServiceAccountExtract()
+        {
+            var path = "wwwroot/ScriptOutput/Output_ServiceAccount.csv";
+            if (File.Exists(path))
+            {
+                return getTextReaderForFile(path).GetRecords<ServiceAccount>();
+            }
+            return null;
+        }
+
         public void UpdateInputHostNameFile(string csvInput)
         {
             var inputHostNameFilePath = "wwwroot/InputFiles/Input_Host.txt";

@@ -45,12 +45,21 @@
 <div>
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-policies-tab" data-toggle="tab" href="#nav-policies" role="tab" aria-controls="nav-policies" aria-selected="false">Policies</a>
+            <a class="nav-item nav-link active" id="nav-coreram-tab" data-toggle="tab" href="#nav-coreram" role="tab" aria-controls="nav-coreram" aria-selected="false">Core/RAM</a>
+            <a class="nav-item nav-link" id="nav-disk-tab" data-toggle="tab" href="#nav-disk" role="tab" aria-controls="nav-disk" aria-selected="false">Disk</a>
+            <a class="nav-item nav-link " id="nav-policies-tab" data-toggle="tab" href="#nav-policies" role="tab" aria-controls="nav-policies" aria-selected="false">Policies</a>
             <a class="nav-item nav-link" id="nav-packages-tab" data-toggle="tab" href="#nav-packages" role="tab" aria-controls="nav-contact" aria-selected="false">Packages</a>
             <a class="nav-item nav-link" id="nav-permission-tab" data-toggle="tab" href="#nav-permission" role="tab" aria-controls="nav-contact" aria-selected="false">Permission</a>
+            <a class="nav-item nav-link" id="nav-serviceaccount-tab" data-toggle="tab" href="#nav-serviceaccount" role="tab" aria-controls="nav-serviceaccount" aria-selected="false">Service Account</a>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade" id="nav-coreram" role="tabpanel" aria-labelledby="nav-coreram-tab" style="padding-left:15px; padding-right:15px;">
+            @*<partial name="/Views/Home/PartialViews/_PartialPermissions.cshtml" />*@
+        </div>
+        <div class="tab-pane fade" id="nav-disk" role="tabpanel" aria-labelledby="nav-disk-tab" style="padding-left:15px; padding-right:15px;">
+            @*<partial name="/Views/Home/PartialViews/_PartialPermissions.cshtml" />*@
+        </div>
         <div class="tab-pane fade show active" id="nav-policies" role="tabpanel" aria-labelledby="nav-policies-tab" style="padding-left:15px; padding-right:15px;">
             @*<partial name="/Views/Home/PartialViews/_PartialPolicies.cshtml" />*@
         </div>
@@ -58,6 +67,9 @@
             @*<partial name="/Views/Home/PartialViews/_PartialPackages.cshtml" />*@
         </div>
         <div class="tab-pane fade" id="nav-permission" role="tabpanel" aria-labelledby="nav-permission-tab" style="padding-left:15px; padding-right:15px;">
+            @*<partial name="/Views/Home/PartialViews/_PartialPermissions.cshtml" />*@
+        </div>
+        <div class="tab-pane fade" id="nav-serviceaccount" role="tabpanel" aria-labelledby="nav-serviceaccount-tab" style="padding-left:15px; padding-right:15px;">
             @*<partial name="/Views/Home/PartialViews/_PartialPermissions.cshtml" />*@
         </div>
     </div>

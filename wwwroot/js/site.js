@@ -62,6 +62,9 @@ function refreshAllExtractTabs() {
     getPolicyTabHTML();
     getPackageTabHTML();
     getPermissionTabHTML();
+    getCoreRamTabHTML();
+    getDiskTabHTML();
+    getSericeAccountTabHTML();
 }
 
 function refreshCompareResults() {
@@ -140,6 +143,54 @@ function getPermissionTabHTML() {
         dataType: "html",
         success: function (response) {
             $("#nav-permission").html(response);
+            //populate the form elements with the returned data
+        },
+        failure: function (response) {
+            //handle the error
+        }
+    });
+}
+
+function getCoreRamTabHTML() {
+    $.ajax({
+        type: "GET",
+        url: "/Home/ExtractCoreAndRAMDetails",
+        contentType: "application/json",
+        dataType: "html",
+        success: function (response) {
+            $("#nav-coreram").html(response);
+            //populate the form elements with the returned data
+        },
+        failure: function (response) {
+            //handle the error
+        }
+    });
+}
+
+function getDiskTabHTML() {
+    $.ajax({
+        type: "GET",
+        url: "/Home/ExtractDiskDetails",
+        contentType: "application/json",
+        dataType: "html",
+        success: function (response) {
+            $("#nav-disk").html(response);
+            //populate the form elements with the returned data
+        },
+        failure: function (response) {
+            //handle the error
+        }
+    });
+}
+
+function getSericeAccountTabHTML() {
+    $.ajax({
+        type: "GET",
+        url: "/Home/ExtractServiceAccountDetails",
+        contentType: "application/json",
+        dataType: "html",
+        success: function (response) {
+            $("#nav-serviceaccount").html(response);
             //populate the form elements with the returned data
         },
         failure: function (response) {
